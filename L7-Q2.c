@@ -7,21 +7,20 @@
 
 #include <stdio.h>
 
-int somaIntervalo(int primeiro, int segundo, int *resultado){
+int somaIntervalo(int numA, int numB, int *resultado){
     *resultado = 0;
-    if(primeiro >= segundo){
+    if(numA >= numB){
         int i;
-        for(i=segundo;i<primeiro;i++)
-            *resultado += (i + segundo);
-        *resultado = *resultado + 1;
+        for(i=numB;i<=numA;i++)
+            *resultado = *resultado + i ;
     }
 }
 
 
 int main(){
     int resultado;
-    
-    somaIntervalo(4,1,&resultado);
-    
+
+    somaIntervalo(10,1,&resultado);
+
     printf("%d", resultado);
 }
