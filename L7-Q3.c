@@ -10,32 +10,28 @@
 
 #include <stdio.h>
 
-int aumentaPorcentagem(double valor, int aumento, double *resultado){
-    double per = aumento;
+int aumentaPorcentagem(float valor, int aumento, float *resultado){
+    //O casting é necessário quando existe atribuição com tipos diferentes de variaveis.
+    //O Casting pode ser feito de duas maneiras:
+    //     1 -  float per = (float) aumento/100;
+    //     2 -  float per = aumento;
+    //          per = per/100;
+    float per = aumento;
     per = per/100;
-    
-    *resultado = valor + valor * per;
+    *resultado = valor + (valor * per);
 }
 
 
 int main(){
-    
     int i, percentual;
-    double valor, resultado=0;
-    
+    float valor, resultado=0;
     
    for(i=0;i<=5;i++){
         printf("Digite o valor do produto:\n");
         scanf("%f",&valor);
         printf("Digite o percentual de aumento:\n");
-        scanf("%d",&percentual);
-        
-        valor = 10;
-        percentual = 20;
-        
+        scanf("%i",&percentual);
         aumentaPorcentagem(valor,percentual,&resultado);
         printf("%.2f\n", resultado);
-        
     }
-  
 }
